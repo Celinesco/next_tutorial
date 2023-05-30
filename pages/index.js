@@ -16,7 +16,20 @@ export async function getStaticProps() {
   };
 }
 
+
+const hanldeSubmit = (e) => {
+  e.preventDefault();
+  console.log("el form fue submiteado")
+}
+
+const handleDelete = () => {
+  console.log("delete entry")
+}
+
+
+
 export default function Home({ allPostsData }) {
+
   return (
     <Layout home>
       <Head>
@@ -33,15 +46,29 @@ export default function Home({ allPostsData }) {
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>{title}</Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
+            <div className={utilStyles.container_entry} key={id}>
+              <li className={utilStyles.listItem} >
+                <Link href={`/posts/${id}`}>{title}</Link>
+                <br />
+                <small className={utilStyles.lightText}>
+                  <Date dateString={date} />
+                </small>
+              </li>
+              <button onClick={handleDelete}>Delete</button>
+            </div>
+
           ))}
         </ul>
+      </section>
+      <section>
+        <h2 className={utilStyles.headingLg}>Create new entry</h2>
+        <form onSubmit={hanldeSubmit}>
+          <label htmlFor='titleEntry'>Title</label> <br/>
+          <input id="titleEntry" name="title" type="text"></input><br />
+          <label htmlFor='descriptionEntry' name="description">Textarea</label><br />
+          <textarea id="descriptionEntry"></textarea> <br />
+          <button type="submit">Post</button>
+        </form>
       </section>
     </Layout>
   );

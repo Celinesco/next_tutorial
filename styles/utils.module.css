@@ -48,5 +48,14 @@
   }
   
   .lightText {
-    color: #666;
+    color: #663;
   }
+
+
+.container_entry{
+  background-color: white;
+  border: 1px solid purple;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 20px;
+}

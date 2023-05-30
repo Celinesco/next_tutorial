@@ -2,12 +2,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "next build"
   },
   "dependencies": {
     "date-fns": "^2.30.0",
     "gray-matter": "^4.0.3",
+    "mysql2": "^3.3.2",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
